@@ -12,4 +12,12 @@ import { NavLink } from "react-router-dom";
 
 export default function TabNav() {
 
+    return(
+    <Menu>
+        <NavLink>Home</NavLink>
+        <NavLink>Character</NavLink>
+        <NavLink>Location</NavLink>
+        <NavLink>Episodes</NavLink>
+    </Menu>
+    )
 };
