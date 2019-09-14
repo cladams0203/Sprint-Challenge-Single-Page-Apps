@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import LocationCard from './LocationCard';
+import styled from 'styled-components';
 import axios from 'axios';
+
+const CardContainer = styled.div `
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+`
 
 export default function LocationsList() {
 
@@ -15,12 +23,12 @@ export default function LocationsList() {
     }, [])
     
     return(
-        <div className='grid-view'>
+        <CardContainer>
             {location.map((item, index) => {
                 return (
                     <LocationCard item={item} key={index} />
                 )
             })}
-        </div>
+        </CardContainer>
     )
 }

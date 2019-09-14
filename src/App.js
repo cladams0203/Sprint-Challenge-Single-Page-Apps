@@ -1,4 +1,6 @@
 import React from "react";
+import { Route } from 'react-router-dom';
+
 import TabNav from "./components/TabNav.js";
 import Header from "./components/Header.js";
 import CharacterList from './components/CharacterList';
@@ -11,9 +13,9 @@ export default function App() {
     <main>
       <Header />
       <TabNav />
-      {/* <CharacterList /> */}
-      {/* <LocationsList /> */}
-      <EpisodesList />
+      <Route path={`/characters`} component={CharacterList} />
+      <Route path={`/locations`} component={LocationsList} />
+      <Route path={`/episodes`} component={EpisodesList} />
 
     </main>
   );

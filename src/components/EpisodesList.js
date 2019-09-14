@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 import EpisodeCard from './EpisodeCard';
+import styled from 'styled-components'
 import axios from 'axios';
+
+const CardContainer = styled.div `
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+`
 
 export default function EpisodesList() {
 
@@ -15,12 +23,12 @@ export default function EpisodesList() {
     }, [])
     
     return(
-        <div className='grid-view'>
+        <CardContainer>
             {episodes.map((item, index) => {
                 return (
                     <EpisodeCard item={item} key={index} />
                 )
             })}
-        </div>
+        </CardContainer>
     )
 }
