@@ -10,8 +10,8 @@ const Card = styled.div `
     box-shadow: 2px 2px 4px black;
 `
 
-export default function LocationCard(props) {
-  const {name, type, dimension, residents} = props.item
+export default function LocationCard({item:{name, type, dimension, residents}}) {
+  // const {name, type, dimension, residents} = props.item
   return (
     <Card >
       <h2>{name}</h2>

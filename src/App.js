@@ -34,7 +34,7 @@ export default function App() {
 }
 function HomeDisplay() {
 
-  const [home, setHome] = useState({})
+  const [home, setHome] = useState()
   console.log(home)
   useEffect(() => {
     axios.get(`https://rickandmortyapi.com/api/character/`)
@@ -47,12 +47,13 @@ function HomeDisplay() {
   
   
   return (
-      
-        <HomeContainer>
-          <img src={home.image} alt={home.name} />
-          <h2>{home.name}</h2>
-          <p>{`${home.species} - ${home.status} `}</p>
+    
+      <HomeContainer>
+          {home !== undefined && <img src={home.image} alt={home.name} />}
+          {home !== undefined && <h2>{home.name}</h2>}
+          {home !== undefined && <p>{`${home.species} - ${home.status} `}</p> }
       </HomeContainer>
+    
       
       
   );
