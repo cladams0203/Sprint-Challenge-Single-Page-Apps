@@ -8,6 +8,7 @@ import Header from "./components/Header.js";
 import CharacterList from './components/CharacterList';
 import LocationsList from './components/LocationsList';
 import EpisodesList from './components/EpisodesList';
+import { Search } from './components/Search';
 // import HomeDisplay from './components/HomeDisplay'
 
 const HomeContainer = styled.div `
@@ -35,11 +36,10 @@ export default function App() {
 function HomeDisplay() {
 
   const [home, setHome] = useState()
-  console.log(home)
   useEffect(() => {
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(response => {
-      setHome(response.data.results[0])
+      setHome(response.data.results)
     })
     .catch(err => console.log(err))
   }, [])
@@ -49,9 +49,10 @@ function HomeDisplay() {
   return (
     
       <HomeContainer>
-          {home !== undefined && <img src={home.image} alt={home.name} />}
-          {home !== undefined && <h2>{home.name}</h2>}
-          {home !== undefined && <p>{`${home.species} - ${home.status} `}</p> }
+          {home !== undefined && <img src={home[0].image} alt={home[0].name} />}
+          {home !== undefined && <h2>{home[0].name}</h2>}
+          {home !== undefined && <p>{`${home[0].species} - ${home[0].status} `}</p> }
+          {/* {home !== undefined && <Search home={home} setHome={setHome} />} */}
       </HomeContainer>
     
       

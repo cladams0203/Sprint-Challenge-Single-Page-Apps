@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
 import axios from 'axios';
+import { Search } from './Search';
 
-export default function CharacterList() {
+export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
   const [character, setCharacter] = useState([])
   
@@ -20,6 +21,7 @@ export default function CharacterList() {
 
   return (
     <section className="character-list grid-view">
+      <Search character={character} setCharacter={setCharacter}/>
       {character.map((item, index) => {
         return(
         <CharacterCard item={item} key={index} />
