@@ -10,13 +10,13 @@ const Card = styled.div `
     box-shadow: 2px 2px 4px black;
 `
 
-export default function LocationCard({item:{name, type, dimension, residents}}) {
-  // const {name, type, dimension, residents} = props.item
+export default function LocationCard(props) {
+  const {name, air_date, episode} = props.item
   return (
     <Card >
       <h2>{name}</h2>
-      <p>{`${type} - ${dimension}`}</p>
-      <p>{`Residents: ${residents.length}`}</p>
+      <p>{`Air Date: ${air_date}`}</p>
+      <p>{`Episode: ${episode}`}</p>
     </Card>
   );
 }

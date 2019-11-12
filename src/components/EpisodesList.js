@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import LocationCard from './LocationCard';
-import styled from 'styled-components';
+import EpisodeCard from './EpisodeCard';
+import styled from 'styled-components'
 import axios from 'axios';
 
 const CardContainer = styled.div `
@@ -10,23 +10,23 @@ const CardContainer = styled.div `
 
 `
 
-export default function LocationsList() {
+export default function EpisodesList() {
 
-    const [location, setLocation] = useState([])
+    const [episodes, setEpisodes] = useState([])
 
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/location/`)
+        axios.get(`https://rickandmortyapi.com/api/episode/`)
         .then(response => {
-            setLocation(response.data.results)
+            setEpisodes(response.data.results)
         })
         .catch(err => console.log(err))
     }, [])
     
     return(
         <CardContainer>
-            {location.map((item, index) => {
+            {episodes.map((item, index) => {
                 return (
-                    <LocationCard item={item} key={index} />
+                    <EpisodeCard item={item} key={index} />
                 )
             })}
         </CardContainer>
